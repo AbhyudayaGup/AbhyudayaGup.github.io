@@ -1,0 +1,105 @@
+:root {
+  --color-accent: #7c6fd6;
+  --color-accent-hover: #6a5cc9;
+  --color-accent-2: #9089de;
+  --color-accent-3: #a89fe3;
+  --color-accent-4: #c2bbec;
+  --color-accent-5: #ddd8f4;
+  --color-accent-6: #f0edfb;
+
+  --color-bg: #f6f4f0;
+  --color-bg-secondary: #ece8e0;
+  --color-bg-hero: #f6f4f0;
+  --color-bg-navbar: #fbfaf7;
+  --color-navbar-bg: #fbfaf7;
+  --color-navbar-bg-solid: #fbfaf7;
+  --color-navbar-edge: rgba(31, 29, 37, 0.06);
+  --color-navbar-depth: rgba(31, 29, 37, 0.04);
+  --color-navbar-shadow: rgba(45, 38, 66, 0.1);
+  --color-surface: #ffffff;
+  --color-surface-strong: #ffffff;
+  --color-text: #211f2b;
+  --color-text-muted: #6b6779;
+  --color-border: rgba(33, 31, 43, 0.09);
+  --color-border-strong: rgba(33, 31, 43, 0.16);
+  --color-shadow: rgba(45, 38, 66, 0.1);
+
+  --color-selection-bg: #7c6fd6;
+  --color-selection-text: #ffffff;
+
+  --color-overlay-light: rgba(124, 111, 214, 0.06);
+  --color-overlay-medium: rgba(124, 111, 214, 0.12);
+  --color-overlay-strong: rgba(124, 111, 214, 0.2);
+
+  --radius: 1.25rem;
+  --radius-sm: 0.75rem;
+  --shadow-soft: 0 2px 10px rgba(45, 38, 66, 0.06), 0 1px 2px rgba(45, 38, 66, 0.05);
+  --shadow-elevated: 0 18px 40px -12px rgba(45, 38, 66, 0.18), 0 4px 10px rgba(45, 38, 66, 0.06);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+  --font-heading: 'Manrope', 'Inter', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SFMono-Regular', monospace;
+}
+
+[data-theme="dark"] {
+  --color-accent: #a294f0;
+  --color-accent-hover: #b3a6ff;
+  --color-accent-2: #948aea;
+  --color-accent-3: #8579de;
+  --color-accent-4: #c2b8fb;
+  --color-accent-5: #d9d0ff;
+  --color-accent-6: #ece7ff;
+
+  --color-bg: #14131a;
+  --color-bg-secondary: #1b1a23;
+  --color-bg-hero: #14131a;
+  --color-bg-navbar: #1c1b25;
+  --color-navbar-bg: #1c1b25;
+  --color-navbar-bg-solid: #1c1b25;
+  --color-navbar-edge: rgba(226, 220, 245, 0.08);
+  --color-navbar-depth: rgba(0, 0, 0, 0.3);
+  --color-navbar-shadow: rgba(0, 0, 0, 0.4);
+  --color-surface: #1e1d28;
+  --color-surface-strong: #211f2c;
+  --color-text: #f2eefb;
+  --color-text-muted: #a9a3bd;
+  --color-border: rgba(226, 220, 245, 0.09);
+  --color-border-strong: rgba(226, 220, 245, 0.16);
+  --color-shadow: rgba(0, 0, 0, 0.35);
+
+  --color-selection-bg: #a294f0;
+  --color-selection-text: #14131a;
+
+  --color-overlay-light: rgba(162, 148, 240, 0.08);
+  --color-overlay-medium: rgba(162, 148, 240, 0.14);
+  --color-overlay-strong: rgba(162, 148, 240, 0.22);
+
+  --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-elevated: 0 20px 44px -12px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Legacy Aliases (backward compatibility) ---- */
+:root,
+[data-theme="dark"] {
+  --primary-color: var(--color-accent);
+  --secondary-color: var(--color-accent-hover);
+  --text-color: var(--color-text);
+  --light-text: var(--color-text-muted);
+  --background: var(--color-bg);
+  --light-background: var(--color-bg-secondary);
+  --border-color: var(--color-border);
+  --color-text-white: #ffffff;
+}
+
+/* ---- Text Selection ---- */
+::selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}
+
+::-moz-selection {
+  background-color: var(--color-selection-bg);
+  color: var(--color-selection-text);
+}

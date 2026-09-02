@@ -1,0 +1,332 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageHeader from '../components/PageHeader.astro';
+
+const projects = [
+  {
+    title: 'Crack Identification',
+    description: 'A computer vision pipeline that detects and classifies cracking patterns in structural surfaces using image processing and machine learning.',
+    technologies: ['Python', 'OpenCV', 'Machine Learning'],
+    githubUrl: 'https://github.com/AbhyudayaGup/Crack-Identification',
+    featured: true,
+  },
+  {
+    title: 'Crack Identification — TDA',
+    description: 'Research project applying topological data analysis to predict how mosaic surfaces crack over time, extending the CV work into a formal research paper.',
+    technologies: ['Python', 'TDA', 'Jupyter'],
+    githubUrl: 'https://github.com/AbhyudayaGup/Crack-Identification-TDA',
+    featured: true,
+  },
+  {
+    title: 'Cosmic Dance BG',
+    description: 'A customizable interactive background of lines that react to cursor movement, built as a lightweight, dependency-free visual effect.',
+    technologies: ['JavaScript', 'Canvas'],
+    githubUrl: 'https://github.com/AbhyudayaGup/Cosmic-Dance-BG',
+    featured: true,
+  },
+  {
+    title: 'Solar System Simulation',
+    description: "An accurate simulation of the solar system's first four planets using Kepler's laws of motion, built for the SSDC 2025 competition.",
+    technologies: ['JavaScript', 'Physics'],
+    githubUrl: 'https://github.com/AbhyudayaGup/Simulation-for-SSDC',
+    featured: true,
+  },
+  {
+    title: 'StemXplore VR',
+    description: 'A VR game that teaches STEM concepts through experiential, hands-on learning rather than static lessons.',
+    technologies: ['C#', 'Unity', 'VR'],
+    githubUrl: 'https://github.com/AbhyudayaGup/StemXplore-VR',
+    featured: false,
+  },
+  {
+    title: 'AI Interviewer',
+    description: 'A tool that runs mock interview sessions and gives feedback, using an LLM to simulate realistic interviewer behavior.',
+    technologies: ['Python', 'LLM'],
+    githubUrl: 'https://github.com/AbhyudayaGup/AI_Interviewer',
+    featured: false,
+  },
+  {
+    title: 'Gym Tracker',
+    description: 'A workout tracking app for logging exercises, sets, and progress over time.',
+    technologies: ['TypeScript', 'React'],
+    githubUrl: 'https://github.com/AbhyudayaGup/gym_tracker',
+    featured: false,
+  },
+  {
+    title: 'VS Code–Themed Portfolio',
+    description: 'An earlier personal site styled as a VS Code IDE, showcasing projects the way a developer actually sees them — as files in an editor.',
+    technologies: ['Astro', 'TypeScript'],
+    githubUrl: 'https://github.com/AbhyudayaGup/Tech-Website',
+    featured: false,
+  },
+];
+---
+
+<Layout title="Projects - Abhyudaya Gupta">
+  <div class="projects-container">
+    <PageHeader
+      title="Projects"
+      subtitle="A collection of things I've built — from research to games to small tools."
+    />
+
+    {projects.some(p => p.featured) && (
+    <div class="featured-projects">
+      <h2>Featured</h2>
+      <div class="projects-grid featured">
+        {projects.filter(p => p.featured).map((project, i) => (
+          <button class="project-card featured" data-modal-open={`project-modal-featured-${i}`}>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>{project.title}</h3>
+                <span class="card-arrow">↗</span>
+              </div>
+              <p>{project.description}</p>
+              <div class="technologies">
+                {project.technologies.map(tech => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+    )}
+
+    {projects.some(p => !p.featured) && (
+    <div class="all-projects">
+      <h2>More projects</h2>
+      <div class="projects-grid">
+        {projects.filter(p => !p.featured).map((project, i) => (
+          <button class="project-card" data-modal-open={`project-modal-more-${i}`}>
+            <div class="project-content">
+              <div class="project-top">
+                <h3>{project.title}</h3>
+                <span class="card-arrow">↗</span>
+              </div>
+              <p>{project.description}</p>
+              <div class="technologies">
+                {project.technologies.map(tech => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+    )}
+
+    {projects.filter(p => p.featured).map((project, i) => (
+      <dialog id={`project-modal-featured-${i}`} class="detail-modal">
+        <div class="modal-inner">
+          <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+          <h3 class="modal-title">{project.title}</h3>
+          <p class="modal-description">{project.description}</p>
+          <div class="modal-meta">
+            {project.technologies.map(tech => (
+              <span class="modal-tag">{tech}</span>
+            ))}
+          </div>
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="modal-link">View on GitHub ↗</a>
+        </div>
+      </dialog>
+    ))}
+
+    {projects.filter(p => !p.featured).map((project, i) => (
+      <dialog id={`project-modal-more-${i}`} class="detail-modal">
+        <div class="modal-inner">
+          <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+          <h3 class="modal-title">{project.title}</h3>
+          <p class="modal-description">{project.description}</p>
+          <div class="modal-meta">
+            {project.technologies.map(tech => (
+              <span class="modal-tag">{tech}</span>
+            ))}
+          </div>
+          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="modal-link">View on GitHub ↗</a>
+        </div>
+      </dialog>
+    ))}
+
+    <div class="cta-section">
+      <h2>Interested in working together?</h2>
+      <p>I'm always open to discussing new opportunities and exciting projects.</p>
+      <div class="cta-links">
+        <a href="mailto:abhyudaya.gupta.ag@gmail.com" class="cta-link">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .projects-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 64px 48px;
+    position: relative;
+  }
+
+  .featured-projects, .all-projects {
+    margin-bottom: 64px;
+  }
+
+  .featured-projects h2, .all-projects h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 24px;
+  }
+
+  .projects-grid {
+    display: grid;
+    gap: 20px;
+  }
+
+  .projects-grid.featured {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  }
+
+  .projects-grid:not(.featured) {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  }
+
+  .project-card {
+    display: block;
+    width: 100%;
+    text-align: left;
+    text-decoration: none;
+    font-family: inherit;
+    cursor: pointer;
+    background: var(--color-surface-strong);
+    box-shadow: var(--shadow-soft);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    transition: transform 0.22s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.22s ease, border-color 0.22s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
+    border-color: var(--color-accent-4);
+  }
+
+  .project-card:hover .card-arrow {
+    transform: translate(2px, -2px);
+    color: var(--color-accent);
+  }
+
+  .project-content {
+    padding: 26px;
+  }
+
+  .project-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .project-content h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--color-text);
+  }
+
+  .card-arrow {
+    flex-shrink: 0;
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+    transition: transform 0.22s ease, color 0.22s ease;
+  }
+
+  .project-content p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
+
+  .technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tech-tag {
+    font-family: var(--font-mono);
+    background: var(--color-overlay-medium);
+    color: var(--color-accent);
+    padding: 4px 10px;
+    border-radius: var(--radius-sm);
+    font-size: 0.72rem;
+    letter-spacing: 0;
+  }
+
+  .cta-section {
+    text-align: center;
+    background: var(--color-surface-strong);
+    box-shadow: var(--shadow-soft);
+    padding: 48px;
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+    margin-bottom: 12px;
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 24px;
+  }
+
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cta-link {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    transition: all 0.2s ease;
+    background: var(--color-accent);
+    color: #ffffff;
+  }
+
+  .cta-link:hover {
+    background: var(--color-accent-hover);
+  }
+
+  @media (max-width: 768px) {
+    .projects-container {
+      padding: 32px 24px;
+    }
+
+    .projects-grid.featured,
+    .projects-grid:not(.featured) {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+      padding: 32px 24px;
+    }
+  }
+</style>
