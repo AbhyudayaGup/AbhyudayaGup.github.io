@@ -11,14 +11,31 @@ const stats = [
 
 const scores = [
   {
+    icon: "💻",
+    name: "USACO Gold",
+    score: "1000",
+    max: "1000",
+    description: "Qualified for USACO Platinum Division",
+    date: "January 2026",
+    highlight: true,
+  },
+  {
+    icon: "➗",
+    name: "AIME",
+    score: "7",
+    max: "15",
+    description: "Double Qualified to AIME",
+    date: "March 2026",
+    highlight: true,
+  },
+  {
     icon: "🎯",
     name: "SAT",
     score: "1500",
     max: "1600",
     description: "SAT Superscore (Math 780 · English 720)",
     date: "August 2026",
-    badge: "Superscore",
-    highlight: true,
+    highlight: false,
   },
   {
     icon: "📊",
@@ -34,56 +51,15 @@ const scores = [
     score: "5",
     max: "5",
     description: "Advanced Placement Computer Science",
-    date: "May 2024",
-  },
-  {
-    icon: "📐",
-    name: "AP Calculus BC",
-    score: "4",
-    max: "5",
-    description: "Advanced Placement Mathematics",
-    date: "May 2024",
-  },
-  {
-    icon: "⚛️",
-    name: "AP Physics 1: Algebra-Based",
-    score: "4",
-    max: "5",
-    description: "Advanced Placement Physics",
-    date: "May 2024",
-  },
-  {
-    icon: "🌍",
-    name: "IGCSE Mathematics International",
-    score: "95.5",
-    max: "100",
-    description: "Grade 10 Board Examination · A*",
-    date: "2024",
-  },
-  {
-    icon: "🧪",
-    name: "IGCSE Physics",
-    score: "85.5",
-    max: "100",
-    description: "Grade 10 Board Examination · A*",
-    date: "2024",
-  },
-  {
-    icon: "📘",
-    name: "IB HL Physics",
-    score: "7",
-    max: "7",
-    description: "Grade 11 Semester 2 (Predicted)",
-    date: "2026",
+    date: "May 2026",
   },
   {
     icon: "🎓",
-    name: "IB Semester 2 Total",
-    score: "39",
-    max: "42",
-    description: "IB Diploma Programme · Grade 11",
+    name: "IB Predicted Score",
+    score: "44",
+    max: "45",
+    description: "IB Diploma Programme Predicted Score",
     date: "2026",
-    //badge: "Personal Best",
     highlight: true,
   },
 ];
@@ -118,7 +94,6 @@ const scores = [
             </div>
             <p class="score-description">{item.description}</p>
             <p class="score-date">{item.date}</p>
-            {item.badge && <span class="score-badge">⭐ {item.badge}</span>}
           </div>
         ))}
       </div>
